@@ -4,10 +4,14 @@ import { NavBar, Icon,WingBlank,Carousel, Tabs, Drawer, List,Flex,SearchBar } fr
 export default class AppShopping extends Component {
     state = {
         data: ['1', '2','3','4'],
+        item: ['1','2','3','4','5','6','7','8','9','10'],
         imgHeight: 176,
     }
     componentDidMount() {
     // simulate img loading
+        this.setState({
+            item: ['1','2','3','4','5','6','7','8','9','10']
+        })
         setTimeout(() => {
             this.setState({
                 data: ['3', '3','3','3'],
@@ -15,6 +19,7 @@ export default class AppShopping extends Component {
         }, 100);
     }
     render() {
+        const font = ['桌','床','椅','几','柜','书架','沙发','家居饰品','户外家具','全部分类'];
         return (
             <div style={{position:'relative'}}>
                 <NavBar
@@ -58,46 +63,15 @@ export default class AppShopping extends Component {
                 </WingBlank>
                 <div className="flex-container" style={{backgroundColor:'#fff'}}>
                     <Flex wrap="wrap" style={{margin:'0'}}>
-                        <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
-                            <img src="images/table.png" style={{width:'90%',height:'40px',marginTop:'0px'}}/>
-                            桌
-                        </div>
-                        <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
-                            <img src="images/bed.png" style={{width:'90%',height:'40px'}}/>
-                            床
-                        </div>
-                        <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
-                            <img src="images/chair.png" style={{width:'90%',height:'40px'}}/>
-                            椅
-                        </div>
-                        <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
-                            <img src="images/tea.png" style={{width:'90%',height:'40px'}}/>
-                            几
-                        </div>
-                        <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
-                            <img src="images/cabinet.png" style={{width:'90%',height:'40px'}}/>
-                            柜
-                        </div>
-                        <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
-                            <img src="images/book.png" style={{width:'90%',height:'40px'}}/>
-                            书架
-                        </div>
-                        <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
-                            <img src="images/sofa.png" style={{width:'90%',height:'40px'}}/>
-                            沙发
-                        </div>
-                        <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
-                            <img src="images/ornaments.png" style={{width:'90%',height:'40px'}}/>
-                            家居饰品
-                        </div>
-                        <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
-                            <img src="images/furniture.png" style={{width:'90%',height:'40px'}}/>
-                            户外家具
-                        </div>
-                        <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
-                            <img src="images/all.png" style={{width:'90%',height:'40px'}}/>
-                            全部分类
-                        </div>
+                        {
+                            this.state.item.map(item => (
+                                <div style={{fontSize:'11px',backgroundColor: '#fff',width:'13%',height:'60px',marginTop:'20px',marginLeft:'20px',textAlign:'center'}}>
+                                    <img src={`images/2${item}.png`} style={{width:'90%',height:'40px'}}/>
+                                    {font[`${item}`-1]}
+                                </div>
+                                )
+                            )
+                        }
                     </Flex>
                 </div>
                 <div className="flex-container">
