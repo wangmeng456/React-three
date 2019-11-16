@@ -88,8 +88,12 @@ export default class AppShopping extends Component {
                             <br/>
                             <span style={{fontSize:'12px',color:'#000',textAlign:'center'}}>￥83.99</span>
                         </div>
+                        <div style={{width:'92%',margin:'14px 10px',marginBottom:'0px'}}>
+                            <img src="images/finally_03.jpg" style={{width:'100%'}}/>
+                        </div>
                     </Flex>
                 </div>
+
             </div>
         )
     }
